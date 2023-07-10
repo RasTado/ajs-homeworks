@@ -1,23 +1,21 @@
 export default class Character {
-  constructor(name, type, attack = undefined, defence = undefined) {
+  constructor(name, type) {
+    if (typeof name !== "string") {
+      throw new Error("Expected name type string");
+    }
+    if (name.length < 2 || name.length > 10) {
+      throw new Error("Expected name min - 2 символа, max - 10");
+    }
+    if (!Character.extTypes.includes(type)) {
+      throw new Error(`Expected type: ${Character.extTypes}`);
+    }
+
     this.name = name;
     this.type = type;
     this.health = 100;
     this.level = 1;
-    this.attack = attack;
-    this.defence = defence;
-
-    if (typeof name !== "string") {
-      throw new Error("ext name type string");
-    }
-    if (name.length < 2 || name.length > 10) {
-      throw new Error("min - 2 символа, max - 10");
-    }
-    if (!Character.extTypes.includes(type)) {
-      throw new Error(
-        "один из типов (строка): Bowman, Swordsman, Magician, Daemon, Undead, Zombie",
-      );
-    }
+    this.attack = undefined;
+    this.defence = undefined;
   }
 
   levelUp() {
