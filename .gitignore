@@ -1,2 +1,4 @@
 modules/webpack/node_modules/
 platforms/ajs_hw/node_modules/
+regex/node_modules/
+regex/coverage/
