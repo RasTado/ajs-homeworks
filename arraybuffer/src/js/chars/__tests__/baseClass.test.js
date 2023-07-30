@@ -81,7 +81,7 @@ test("Fight Test (Not Stoned)", () => {
   const testChar2 = new Bowman("Test2");
   testChar1.attackEnemy(testChar2, 3);
   expect(testChar2.health).toBe(
-    100 - (50 - 50 * 0.1 * (3 - 1)) * (1 - 25 / 100)
+    100 - (50 - 50 * 0.1 * (3 - 1)) * (1 - 25 / 100),
   );
 });
 
@@ -91,6 +91,6 @@ test("Fight Test (Stoned)", () => {
   testChar1.stoned = true;
   testChar1.attackEnemy(testChar2, 2);
   expect(testChar2.health).toBe(
-    100 - (50 - 50 * 0.1 * (2 - 1) - Math.log2(2) * 5) * (1 - 25 / 100)
+    100 - (50 - 50 * 0.1 * (2 - 1) - Math.log2(2) * 5) * (1 - 25 / 100),
   );
 });
